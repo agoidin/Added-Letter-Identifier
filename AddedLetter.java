@@ -37,13 +37,22 @@ public class AddedLetter {
 
     public static void main(String[] args) {
 
-        if ((args[0].length() + 1 == args[1].length()) &&
+        try {
+
+            if ((args[0].length() + 1 == args[1].length()) ||
             (args[0].length() >= 0 && args[0].length() <= 1000)) {
 
             System.out.println(
                 "Extra added letter to second string is: " + 
-                AddedLetter.getExtraLetter(args[0], args[1]));
-                
+                AddedLetter.getExtraLetter(args[0].toLowerCase(), args[1].toLowerCase()));
+
         } else System.out.println("Mistake in input");
+
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println(
+                "Please, run the program with 2 arguments." + 
+                "\nExample format: java AddedLetter \"ab\" \"cba\"");
+        }
+        
     }
 }
